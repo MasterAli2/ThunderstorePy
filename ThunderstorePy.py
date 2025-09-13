@@ -43,6 +43,13 @@ class PackageListing:
     has_nsfw_content: bool = None
     categories: str = None
     versions: list['PackageVersion'] = None
+    
+    def getTotalDownloads(self):
+        total_downloads = 0
+        for i in self.versions:
+            total_downloads += i.downloads
+            
+        return total_downloads
 
 class PackageVersion:
     name: str = None
